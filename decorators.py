@@ -15,23 +15,24 @@ def saying_hello():
 
 
 saying_hello()
-# num = 3
-# decorated_function = decorator(saying_hello, num)
-# decorated_function()
+
+num = 3
+decorated_function = decorator(saying_hello, num)
+decorated_function()
 
 
-# class decorator_class:
-#     def __init__(self, func):
-#         self.func = func
+class decorator_class:
+    def __init__(self, func):
+        self.func = func
 
-#     def __call__(self):
-#         print("Before calling the function")
-#         self.func()
-#         print("After calling the function")
+    def __call__(self):
+        print("Before calling the function")
+        self.func()
+        print("After calling the function")
 
 
-# def saying_bye():
-#     print("Bye!")
+def saying_bye():
+    print("Bye!")
 
-# decoration_class = decorator_class(saying_bye)
-# decoration_class()
+decoration_class = decorator_class(saying_bye)
+decoration_class()
