@@ -1,38 +1,54 @@
-def decorator(num, func):
-    num_repet = num
-    def wrapper():
-        print("Before calling the function")
-        for i in range(num_repet):
-            func()
-        print("After calling the function")
+# def decorator(func):
+   
+#     def wrapper():
+#         print("Before calling the function")
+#         func()
+#         print("After calling the function")
 
-    return wrapper 
+#     return wrapper 
+
+def outer_decorator(num, val):
+ 
+    number = num
+    concate_val = val
+    def decorator(func):
+
+        def wrapper():
+
+            for i in range(number):
+                print(concate_val)
+                func()
+                
+
+        return wrapper
+
+    return decorator
 
 num = 3
-@decorator(num)
+val = "HEY, HEY, HEY, HEY, HEY"
+@outer_decorator(num, val)
 def saying_hello():
     print("Hello")
 
-
 saying_hello()
 
-num = 3
-decorated_function = decorator(saying_hello, num)
-decorated_function()
 
 
-class decorator_class:
-    def __init__(self, func):
-        self.func = func
 
-    def __call__(self):
-        print("Before calling the function")
-        self.func()
-        print("After calling the function")
+# class decorator_class:
+
+#     def __init__(self, func):
+#         self.func = func
+
+#     def __call__(self):
+#         print("Before calling the function")
+#         self.func()
+#         print("After calling the function")
 
 
-def saying_bye():
-    print("Bye!")
+# @decorator_class
+# def saying_bye():
+#     print("Bye!")
 
-decoration_class = decorator_class(saying_bye)
-decoration_class()
+# saying_bye()
+# # saying_bye = decorator_class(saying_bye)
